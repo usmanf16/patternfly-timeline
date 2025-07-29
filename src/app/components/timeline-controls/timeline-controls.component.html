@@ -1,0 +1,84 @@
+<form class="toolbar-pf-actions">
+  <div class="form-group">
+    <select 
+      class="form-control" 
+      id="timeline-selectpicker" 
+      multiple
+      [value]="selectedSeries"
+      (change)="onSeriesChange($event)">
+      <option *ngFor="let series of timelineData" [value]="series.name">
+        {{ series.name }}
+      </option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <div class="dropdown">
+      <button 
+        class="btn btn-default dropdown-toggle" 
+        id="range-dropdown" 
+        data-toggle="dropdown" 
+        type="button">
+        <span>{{ selectedRange }}</span>&nbsp;
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu zoom-filter" role="menu">
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onRangeChange('1 hour'); $event.preventDefault()">1 hour</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onRangeChange('1 day'); $event.preventDefault()">1 day</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onRangeChange('1 week'); $event.preventDefault()">1 week</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onRangeChange('1 month'); $event.preventDefault()">1 month</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="dropdown">
+      <button 
+        class="btn btn-default dropdown-toggle" 
+        id="position-dropdown" 
+        data-toggle="dropdown" 
+        type="button">
+        <span>{{ selectedPosition }}</span>&nbsp;
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu zoom-filter" role="menu">
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onPositionChange('centered on'); $event.preventDefault()">centered on</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onPositionChange('starting'); $event.preventDefault()">starting</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#" (click)="onPositionChange('ending'); $event.preventDefault()">ending</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="input-group date" id="datepicker">
+      <input 
+        type="date" 
+        class="form-control" 
+        [value]="selectedDate | date:'yyyy-MM-dd'"
+        (change)="onDateChange($event)">
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+      </span>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <button 
+      class="btn btn-default" 
+      id="reset-button" 
+      type="button"
+      (click)="onResetZoom()">
+      Reset Zoom
+    </button>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row toolbar-pf">
+    <div class="col-sm-12">
+      <app-timeline-controls
+        [timelineData]="timelineData"
+        [selectedSeries]="selectedSeries"
+        (seriesSelectionChange)="onSeriesSelectionChange($event)">
+      </app-timeline-controls>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div id="pf-timeline">
+      <app-timeline
+        [data]="filteredTimelineData"
+        (eventClick)="onEventClick($event)">
+      </app-timeline>
+    </div>
+  </div>
+  
+  <br/>
+  <div id="legend" [innerHTML]="legendContent"></div>
+</div>

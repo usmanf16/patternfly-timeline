@@ -1,0 +1,53 @@
+.toolbar-pf-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  margin-bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  border-radius: 4px 0 0 4px;
+}
+
+.input-group-addon {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+}
+
+select[multiple] {
+  min-width: 200px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .toolbar-pf-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-group {
+    justify-content: center;
+  }
+}
